@@ -15,14 +15,9 @@ class CreatePartsTable extends Migration
     {
         Schema::create('parts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('car_id');
             $table->string('name');
             $table->decimal('price');
             $table->timestamps();
-
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('car_id')->references('id')->on('cars');
         });
     }
 
