@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class EnginesToPart extends Model
 {
     use HasFactory;
-    protected $table = 'engines_to_part';
+    protected $table = 'engine_part';
 }

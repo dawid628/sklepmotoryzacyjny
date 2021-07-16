@@ -13,7 +13,7 @@ class CreateEnginesToCarTable extends Migration
      */
     public function up()
     {
-        Schema::create('engines_to_car', function (Blueprint $table) {
+        Schema::create('engine_car', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('engine_id');
             $table->unsignedBigInteger('car_id');

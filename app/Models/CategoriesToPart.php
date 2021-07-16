@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class CategoriesToPart extends Model
 {
     use HasFactory;
-    protected $table = 'categories_to_part';
+    protected $table = 'category_part';
 }

@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class BodyworksToPart extends Model
 {
     use HasFactory;
-    protected $table = 'bodyworks_to_part';
+    protected $table = 'bodywork_part';
+    
 }

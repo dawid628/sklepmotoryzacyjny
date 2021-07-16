@@ -13,7 +13,7 @@ class CreateBodyworksToCarTable extends Migration
      */
     public function up()
     {
-        Schema::create('bodyworks_to_car', function (Blueprint $table) {
+        Schema::create('bodywork_car', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('bodywork_id');
             $table->unsignedBigInteger('car_id');

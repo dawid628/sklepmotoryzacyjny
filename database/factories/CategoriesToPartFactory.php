@@ -22,8 +22,8 @@ class CategoriesToPartFactory extends Factory
     public function definition()
     {
         return [
-            'category_id' => rand(1,100),
-            'part_id' => rand(1,100),
+            'category_id' => rand(1,10),
+            'part_id' => rand(1,10),
         ];
     }
 }

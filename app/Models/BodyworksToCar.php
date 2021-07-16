@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class BodyworksToCar extends Model
 {
     use HasFactory;
-    protected $table = 'bodyworks_to_car';
+    protected $table = 'bodywork_car';
 }

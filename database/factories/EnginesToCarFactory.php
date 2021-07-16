@@ -22,8 +22,8 @@ class EnginesToCarFactory extends Factory
     public function definition()
     {
         return [
-            'engine_id' => rand(1,100),
-            'car_id' => rand(1,100),
+            'engine_id' => rand(1,10),
+            'car_id' => rand(1,10),
         ];
     }
 }

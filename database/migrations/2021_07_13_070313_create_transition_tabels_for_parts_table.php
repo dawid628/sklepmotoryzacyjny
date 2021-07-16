@@ -13,7 +13,7 @@ class CreateTransitionTabelsForPartsTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories_to_part', function (Blueprint $table) {
+        Schema::create('category_part', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('part_id');
@@ -23,7 +23,7 @@ class CreateTransitionTabelsForPartsTable extends Migration
             $table->foreign('part_id')->references('id')->on('parts');
         });
 
-        Schema::create('cars_to_part', function (Blueprint $table) {
+        Schema::create('car_part', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('car_id');
             $table->unsignedBigInteger('part_id');

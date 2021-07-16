@@ -22,8 +22,8 @@ class BodyworksToCarFactory extends Factory
     public function definition()
     {
         return [
-            'bodywork_id' => rand(1,100),
-            'car_id' => rand(1,100),
+            'bodywork_id' => rand(1,10),
+            'car_id' => rand(1,10),
         ];
     }
 }
