@@ -16,6 +16,8 @@ class EditPartController extends Controller
         $part->price = $request->price;
 
         $part->save();
+
+        return redirect()->route('panel')->with('message', 'Updated part succesfully.');
         
     }
 }

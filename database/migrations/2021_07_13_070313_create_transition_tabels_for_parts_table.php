@@ -32,6 +32,7 @@ class CreateTransitionTabelsForPartsTable extends Migration
             $table->foreign('car_id')->references('id')->on('cars');
             $table->foreign('part_id')->references('id')->on('parts');
         });
+        
     }
 
     /**

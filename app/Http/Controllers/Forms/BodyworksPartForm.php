@@ -9,15 +9,28 @@ class BodyworksPartForm
 {
     public function CreateBodyworkPart(Request $request, $id){
 
-       foreach($request->bodywork_ids as $bodywork){
+        if(is_array($request->bodywork_ids)){
+       
+            foreach($request->bodywork_ids as $bodywork){
 
-        $bodywork_part = new BodyworksToPart();
+                $bodywork_part = new BodyworksToPart();
         
-        $bodywork_part->part_id = $id;
-        $bodywork_part->bodywork_id = $bodywork;
+                $bodywork_part->part_id = $id;
+                $bodywork_part->bodywork_id = $bodywork;
 
-        $bodywork_part->save();
-    }
+                $bodywork_part->save();
+            }
+        }
+
+        if(!is_array($request->bodywork_ids))
+        {
+            $bodywork_part = new BodyworksToPart();
+        
+            $bodywork_part->part_id = $id;
+            $bodywork_part->bodywork_id = $request->bodywork_ids;
+
+            $bodywork_part->save();
+        }
     }
 
     public function delete_bodywork_part(Request $request){

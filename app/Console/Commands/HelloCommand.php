@@ -28,8 +28,6 @@ class HelloCommand extends Command
     public function __construct()
     {
         parent::__construct();
-
-        echo "Hello World\n";
     }
 
     /**
@@ -39,6 +37,6 @@ class HelloCommand extends Command
      */
     public function handle()
     {
-        return 0;
+        echo "Hello World\n";
     }
 }

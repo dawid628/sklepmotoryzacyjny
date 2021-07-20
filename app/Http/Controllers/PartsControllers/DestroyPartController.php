@@ -14,5 +14,7 @@ class DestroyPartController extends Controller
         DB::table("engine_part")->where("part_id", $id)->delete();
         DB::table("car_part")->where("part_id", $id)->delete();
         DB::table("parts")->where("id", $id)->delete();
+        
+        return redirect()->route('panel')->with('message', 'Deleted succesfully.');
     }
 }

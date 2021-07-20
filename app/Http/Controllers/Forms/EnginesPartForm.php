@@ -7,17 +7,29 @@ use Illuminate\Http\Request;
 
 class EnginesPartForm
 {
-    public function CreateEnginePart(Request $request, $id)
-    {
+    public function CreateEnginePart(Request $request, $id){
 
-       foreach($request->engine_ids as $engine){
+        if(is_array($request->engine_ids)){    
 
-        $engine_part = new EnginesToPart();
+            foreach($request->engine_ids as $engine){
+
+                $engine_part = new EnginesToPart();
         
-        $engine_part->part_id = $id;
-        $engine_part->engine_id = $engine;
+                $engine_part->part_id = $id;
+                $engine_part->engine_id = $engine;
 
-        $engine_part->save();
-    }
+                $engine_part->save();
+            }
+        }
+
+        if(!is_array($request->engine_ids)){
+
+            $engine_part = new EnginesToPart();
+        
+            $engine_part->part_id = $id;
+            $engine_part->engine_id = $request->engine_ids;
+
+            $engine_part->save();   
+        }
     }
 }
