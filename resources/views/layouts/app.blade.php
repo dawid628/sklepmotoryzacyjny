@@ -34,11 +34,10 @@
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Cart
+                        <a class="btn btn-outline-dark" href="{{ route('cart.show') }}">
+                            <i class="bi-cart-fill me-1"></i>Cart
                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
+                        </a>   
                         <a class="btn btn-outline-dark" href="{{ route('panel') }}">Panel</a>    
                         <a class="btn btn-outline-dark" href="{{ route('login') }}">Login</a>
                         <a class="btn btn-outline-dark" href="{{ route('register') }}">Register</a>

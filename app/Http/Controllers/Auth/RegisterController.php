@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Mail\Registered;
 use App\Models\RoleToUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -73,18 +75,11 @@ class RegisterController extends Controller
         $id = $user->id;
         $role = new RoleToUser();
         $role->user_id = $id;
-        $role->role_id = 1;
+        $role->role_id = 3;
         $role->save();
-        // $user = new User();
-        // $user->name = $data['name'];
-        // $user->email = $data['email'];
-        // $user->password = Hash::make($data['password']);
-        // $user->save();
         
-        // $role = new RoleToUser();
-        // $role->user_id = $user->id;
-        // $role->role_id = 1;
-        // $role->save();
+        Mail::to($data['email'])->send(new Registered());
+
         return $user;
         // return redirect('/');
     }

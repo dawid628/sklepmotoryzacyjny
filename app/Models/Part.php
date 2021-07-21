@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Cart;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Part extends Model
 {
@@ -29,4 +30,8 @@ class Part extends Model
         return $this->belongsToMany(Engine::class);
     }
 
+    public function carts(){
+
+        return $this->belongsToMany(User::class, 'carts');
+    }
 }

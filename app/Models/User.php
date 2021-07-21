@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Cart;
 use App\Models\Role;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;

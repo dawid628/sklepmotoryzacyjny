@@ -29,7 +29,15 @@ class DatabaseSeeder extends Seeder
         //  \App\Models\CarsToPart::factory(10)->create();
         //  \App\Models\CategoriesToPart::factory(10)->create();
 
-        // $count = User::all('id');
+        //  $count = User::all('id');
+        // foreach($count as $item)
+        // {
+        //     $ru = new RoleToUser();
+        //     $ru->user_id = $item->id;
+        //     $ru->role_id = '3';
+        //     $ru->save();
+        // }
+        
         
     }
 }

@@ -26,9 +26,13 @@
                                 </div>
                             </div>
                             <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
+                            <form method="POST" action="{{ route('cart.add', ['id' => $part->id]) }}">
+                                @csrf
+                                <input name="id" value="{{ $part->id }}" type="hidden"/>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-outline-dark mt-auto">Add to cart</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     @endforeach    

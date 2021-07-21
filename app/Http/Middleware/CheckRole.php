@@ -26,6 +26,6 @@ class CheckRole
         if($request->user()->hasAnyRole($roles)){
             return $next($request);
         }
-        return abort(401);
+        return redirect('/');
     }
 }
