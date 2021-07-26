@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Forms;
+namespace App\Http\Forms;
 
 use App\Models\CarsToPart;
 use Illuminate\Http\Request;

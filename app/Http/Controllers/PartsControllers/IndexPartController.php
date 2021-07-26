@@ -5,6 +5,7 @@ namespace App\Http\Controllers\PartsControllers;
 use App\Models\Part;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ShoppingList;
 
 class IndexPartController extends Controller
 {
@@ -38,21 +39,19 @@ class IndexPartController extends Controller
         ]);
 
         $parts = $query->paginate(4);//->toJson();
-      
+
+        if($request->user()){
+
+            $lists = ShoppingList::all()->where('user_id', $request->user()->id);
+
+            return view('index', ['parts' => $parts, 'lists' => $lists]);
+        }
+
         return view('index', ['parts' => $parts]);
-     // return $parts;
     }
 
     private function getQuery(Request $request){
         
         return Part::with('bodyworks', 'categories', 'cars', 'engines');
-        // ->join('category_part', 'parts.id', '=', 'category_part.part_id')
-        // ->join('categories', 'categories.id', '=', 'category_part.category_id')
-        // ->join('car_part', 'parts.id', '=', 'car_part.part_id')
-        // ->join('cars', 'cars.id', '=', 'car_part.car_id')
-        // ->join('bodywork_part', 'parts.id', '=', 'bodywork_part.part_id')
-        // ->join('bodyworks', 'bodyworks.id', '=', 'bodywork_part.bodywork_id')
-        // ->join('engine_part', 'parts.id', '=', 'engine_part.part_id')
-        // ->join('engines', 'engines.id', '=', 'engine_part.engine_id');
     }
 }

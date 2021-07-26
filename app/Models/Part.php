@@ -34,4 +34,9 @@ class Part extends Model
 
         return $this->belongsToMany(User::class, 'carts');
     }
+
+    public function lists(){
+
+        return $this->belongsToMany(ShoppingList::class); //'part_shopping_list', 'shopping_list_id', 'part_id');
+    }
 }

@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('content')
+@if(session()->has('message'))
+<div class="alert alert-success" role="alert">
+    <h4>
+        {{ session()->get('message') }}
+    </h4>
+</div>
+@endif
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">  
                 <table class="table">

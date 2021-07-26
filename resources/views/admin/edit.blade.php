@@ -1,13 +1,6 @@
 @extends('layouts.app')
     @section('content')
         <!-- Section-->
-        @if(session()->has('message'))
-        <div class="alert alert-success" role="alert">
-            <h4>
-                {{ session()->get('message') }}
-            </h4>
-        </div>
-        @endif
         <section class="py-5">
             <form action="{{ route('part.update', ['id' => $parts->id]) }}" method="POST" id="contactForm"
                 name="sentMessage">

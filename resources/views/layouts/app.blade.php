@@ -37,6 +37,9 @@
                         <a class="btn btn-outline-dark" href="{{ route('cart.show') }}">
                             <i class="bi-cart-fill me-1"></i>Cart
                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </a>  
+                        <a class="btn btn-outline-dark" href="{{ route('list') }}">
+                            <i class="bi-cart-fill me-1"></i>List
                         </a>   
                         <a class="btn btn-outline-dark" href="{{ route('panel') }}">Panel</a>    
                         <a class="btn btn-outline-dark" href="{{ route('login') }}">Login</a>

@@ -11,10 +11,16 @@ class DeleteUserController extends Controller
 {
     public function delete($id)
     {
+        if(User::find($id)){
+
         DB::table("role_user")->where("user_id", $id)->delete();
         DB::table("users")->where("id", $id)->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'User deleted succesfully.');
+        }
+
+        if(!User::find($id))
+            return "User doesn't exists.";
 
     }
 }

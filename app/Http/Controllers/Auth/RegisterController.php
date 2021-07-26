@@ -81,10 +81,6 @@ class RegisterController extends Controller
         Mail::to($data['email'])->send(new Registered());
 
         return $user;
-        // return redirect('/');
+        // return redirect('/'); 
     }
-
-    // public function complete(){
-
-    // }
 }

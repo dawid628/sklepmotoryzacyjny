@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Forms;
+namespace App\Http\Forms;
 
 use App\Models\Part;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Forms\CarsPartForm;
-use App\Http\Controllers\Forms\EnginesPartForm;
-use App\Http\Controllers\Forms\CategoriesPartForm;
+use App\Http\Forms\CarsPartForm;
+use App\Http\Forms\EnginesPartForm;
+use App\Http\Forms\BodyworksPartForm;
+use App\Http\Forms\CategoriesPartForm;
 
 class CreatePartForm
 {

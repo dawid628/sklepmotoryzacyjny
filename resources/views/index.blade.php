@@ -33,6 +33,20 @@
                                     <button type="submit" class="btn btn-outline-dark mt-auto">Add to cart</button>
                                 </div>
                             </form>
+                            @if(Auth::check())
+                            <form method="" action="{{ route('list.add') }}">
+                                @csrf
+                                <select name="list_id" class="form-select" aria-label="Default select example">
+                                    @foreach ($lists as $list)
+                                        <option value="{{$list->id}}">{{$list->name}}</option>
+                                    @endforeach
+                                    <input name="part_id" value="{{ $part->id }}" type="hidden"/>
+                                  </select>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-outline-dark mt-auto">Add to list</button>
+                                </div>
+                            </form>
+                            @endif 
                         </div>
                     </div>
                     @endforeach    
@@ -44,4 +58,4 @@
                     </span>
                   </div>
             </div>
-    @endsection    
+    @endsection
