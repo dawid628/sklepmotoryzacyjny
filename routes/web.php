@@ -23,7 +23,6 @@ use App\Http\Controllers\PartsControllers\DestroyPartController;
 use App\Http\Controllers\PartToListControllers\CreatePartToListController;
 use App\Http\Controllers\PartToListControllers\DeletePartToListController;
 
-
 Route::group(['middleware' => 'roles', 'roles' => ['admin', 'moderator']], function(){
 
     Route::get('/admin', [PanelController::class, 'index'])->name('panel');
@@ -86,6 +85,6 @@ Route::get('/', [IndexPartController::class, 'Index'])->name('index');
 
 Route::get('/show/{id}', [ShowPartController::class, 'Show']);
 
-Route::get('/search/{category_id}', [SearchPartController::class, 'SearchByCategory']); 
+Route::get('/search/{category_id}', [SearchPartController::class, 'SearchByCategory']);
 
 Auth::routes();

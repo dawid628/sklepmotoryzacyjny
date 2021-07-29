@@ -25,7 +25,7 @@ class PartRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'price' => 'required',//|regex:/^\d*(\.\d{1,2})?$/',
+            'price' => 'required|numeric|min:0',
             'category_ids' => 'required',
             'bodywork_ids' => 'required',
             'engine_ids' => 'required',

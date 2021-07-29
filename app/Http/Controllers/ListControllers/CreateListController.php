@@ -5,18 +5,30 @@ namespace App\Http\Controllers\ListControllers;
 use App\Models\ShoppingList;
 use App\Http\Requests\ListRequest;
 use App\Http\Controllers\Controller;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class CreateListController extends Controller
 {
-    public function create(ListRequest $request){
+    protected $list;
 
-        $list = new ShoppingList();
+    public function __construct(ShoppingList $list)
+    {
+        $this->list = $list;
+    }
+    
+    public function create(ListRequest $request)
+    {
+        if(!isset($request->id)){
+            throw new HttpException(500, "User's id doesn't exists.");
+        }
 
-        $list->name = $request->name;
-        $list->user_id = $request->user()->id;
+        $this->list->user_id = $request->id;
+        $this->list->name = $request->name;
 
-        $list->save();
+        if(!$this->list->save()){
+            throw new HttpException(500, "Saving shopping list went wrong");
+        }
 
-        return redirect()->route('list')->with('message', 'Created list.');
+        return true;
     }
 }

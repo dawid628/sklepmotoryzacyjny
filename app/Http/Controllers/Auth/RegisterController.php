@@ -72,6 +72,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        
         $id = $user->id;
         $role = new RoleToUser();
         $role->user_id = $id;
@@ -80,7 +81,7 @@ class RegisterController extends Controller
         
         Mail::to($data['email'])->send(new Registered());
 
-        return $user;
-        // return redirect('/'); 
+        //return $user;
+        return redirect('/'); 
     }
 }

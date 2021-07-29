@@ -9,4 +9,8 @@ class PartsToList extends Model
 {
     use HasFactory;
     protected $table = 'part_shopping_list';
+    
+    protected $fillable = [
+        'name', 'shopping_list_id','part_id',
+    ];
 }

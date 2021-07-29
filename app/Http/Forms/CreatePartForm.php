@@ -3,29 +3,33 @@
 namespace App\Http\Forms;
 
 use App\Models\Part;
-use Illuminate\Http\Request;
 use App\Http\Forms\CarsPartForm;
+use App\Http\Requests\PartRequest;
 use App\Http\Forms\EnginesPartForm;
 use App\Http\Forms\BodyworksPartForm;
 use App\Http\Forms\CategoriesPartForm;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class CreatePartForm
 {
-    public function CreateNewPart(Request $request)
+    public function CreateNewPart(PartRequest $request)
     {
        
-        //stworzenie rekordu dla nowej części
         $part = new Part();
         $part->name = $request->name;
         $part->price = $request->price;
         $part->save();
 
-        $this->create_records($request, $part->id);
-        
+        $this->createRecords($request, $part->id);
+
+        return redirect()->route('panel');      
     }
 
-    public function create_records(Request $request, $id)
+    public function createRecords(PartRequest $request, $id)
     {
+        if(!Part::find($id)){
+            return new HttpException(500, "Part's id doesn't exist.");
+        }
         
         //stworzenie rekordów w tabeli przejsciowej category_part dla nowej części
         $category_part = new CategoriesPartForm();

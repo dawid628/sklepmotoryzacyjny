@@ -15,6 +15,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                               @if(Auth::check()) <input type="hidden" name="id" value="{{ Auth::user()->id }}">@endif
                             </div>
                         </div>
                         <div class="form-group row mb-0">
