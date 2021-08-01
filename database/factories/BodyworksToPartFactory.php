@@ -22,8 +22,13 @@ class BodyworksToPartFactory extends Factory
     public function definition()
     {
         return [
+<<<<<<< HEAD
             'part_id' => rand(1,10),
             'bodywork_id' => rand(1,10),
+=======
+            'part_id' => rand(1,100),
+            'bodywork_id' => rand(1,100),
+>>>>>>> master
         ];
     }
 }
