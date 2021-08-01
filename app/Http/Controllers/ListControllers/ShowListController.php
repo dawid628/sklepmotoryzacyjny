@@ -19,7 +19,6 @@ class ShowListController extends Controller
         $lists = ShoppingList::find($id)->parts();
         $lists = $lists->get();
         
-        //return $lists->toJson();
         return view('list.show', ['lists' => $lists]);
     }
 }

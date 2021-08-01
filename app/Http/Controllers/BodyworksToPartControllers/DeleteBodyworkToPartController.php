@@ -9,7 +9,9 @@ use App\Http\Controllers\Controller;
 class DeleteBodyworkToPartController extends Controller
 {
     public function DeleteBodyworkPart($id){
-        
-        BodyworksToPart::destroy($id);
+
+        if(BodyworksToPart::find($id)){
+            BodyworksToPart::destroy($id);
+        }
     }
 }

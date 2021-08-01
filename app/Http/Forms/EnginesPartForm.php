@@ -17,8 +17,9 @@ class EnginesPartForm
         
                 $engine_part->part_id = $id;
                 $engine_part->engine_id = $engine;
-
                 $engine_part->save();
+
+                return;
             }
         }
 
@@ -28,8 +29,9 @@ class EnginesPartForm
         
             $engine_part->part_id = $id;
             $engine_part->engine_id = $request->engine_ids;
-
             $engine_part->save();   
+
+            return;
         }
     }
 }

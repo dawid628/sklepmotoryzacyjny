@@ -9,6 +9,8 @@ class DeleteCarToPartController extends Controller
 {
     public function DeleteCarPart($id){
 
-        CarsToPart::destroy($id);
+        if(CarsToPart::find($id)){
+            CarsToPart::destroy($id);
+        }
     }
 }

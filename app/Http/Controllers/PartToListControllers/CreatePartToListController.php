@@ -21,10 +21,8 @@ class CreatePartToListController extends Controller
         $item = new PartsToList();
         $item->shopping_list_id = $request->list_id;
         $item->part_id = $request->part_id;
-
         $item->save();
         
-        //return $item;
         return redirect()->back();
     }
 }

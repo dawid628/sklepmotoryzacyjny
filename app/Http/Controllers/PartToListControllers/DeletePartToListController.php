@@ -16,8 +16,8 @@ class DeletePartToListController extends Controller
         {
             return throw new HttpException(500, "wrong id");
         }
+
         $item = DB::table("part_shopping_list")->first();
-        
         PartsToList::destroy($item->id);
         
         return redirect()->back();

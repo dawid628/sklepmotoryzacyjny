@@ -33,7 +33,7 @@ class BodyworksPartForm
         }
     }
 
-    public function delete_bodywork_part(Request $request){
+    public function DeleteBodyworkPart(Request $request){
 
         $bodywork_part = BodyworksToPart::find()->where('part_id', $request->part_id)->where('bodywork_id', $request->bodywork_id);
     }

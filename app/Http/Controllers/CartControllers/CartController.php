@@ -13,7 +13,7 @@ class CartController extends Controller
 
         $query = Cart::with('part')->where('carts.user_id', $request->user()->id);
         $query = $query->get(); 
-       //return $query;
+
        return view('cart.index', ['cart' => $query]);
     }
     
@@ -30,7 +30,9 @@ class CartController extends Controller
 
     public function delete($id)
     {
-        Cart::destroy($id);
+        if(Cart::find($id)){
+            Cart::destroy($id);
+        }
         
         return redirect()->back();
     }

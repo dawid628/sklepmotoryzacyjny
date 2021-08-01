@@ -10,6 +10,8 @@ class DeleteCategoryToPartController extends Controller
 {
     public function DeleteCategoryPart($id){
 
-        CategoriesToPart::destroy($id);
+        if(CategoriesToPart::find($id)){
+            CategoriesToPart::destroy($id);
+        }
     }
 }

@@ -15,7 +15,6 @@ class ShowPartController extends Controller
         }
         
             $part = Part::find($id);
-
             $part = Part::with('bodyworks', 'categories', 'cars')->where('id', $id)->get();
         
             return $part->toJson();

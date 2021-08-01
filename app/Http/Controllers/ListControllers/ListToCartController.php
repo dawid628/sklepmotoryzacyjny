@@ -13,7 +13,6 @@ class ListToCartController extends Controller
     public function add($id, Request $request){
 
         $list = ShoppingList::find($id)->parts()->get();
-        //$list = Part::with('lists')->where('lists.id', $id)->get();
 
         foreach($list as $item){
             

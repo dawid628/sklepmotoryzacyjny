@@ -29,6 +29,6 @@ class CreateListController extends Controller
             throw new HttpException(500, "Saving shopping list went wrong");
         }
 
-        return true;
+        return redirect()->route('list');
     }
 }

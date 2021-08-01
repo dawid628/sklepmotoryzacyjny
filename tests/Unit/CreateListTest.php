@@ -17,7 +17,8 @@ class CreateListTest extends TestCase
      */
 
     public function testListCreating()
-    {        
+    {  
+      $this->expectExceptionMessage('Saving shopping list went wrong');      
 
         /** @var ShoppingList $shoppingList */
         $shoppingList = $this->createMock(ShoppingList::class);
@@ -30,7 +31,5 @@ class CreateListTest extends TestCase
 
         $controller = new CreateListController($shoppingList);
         $controller->create($request);
-    
-        $this->expectExceptionMessage('Saving shopping list went wrong');
       }
 }

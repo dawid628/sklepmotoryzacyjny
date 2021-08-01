@@ -10,6 +10,8 @@ class DeleteEngineToPartController extends Controller
 {
     public function delete_engine_part($id)
     {
-        EnginesToPart::destroy($id);
+        if(EnginesToPart::find($id)){
+            EnginesToPart::destroy($id);
+        }
     }
 }
