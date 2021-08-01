@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EnginesToCar extends Model
+class CarsToPart extends Model
 {
     use HasFactory;
-    protected $table = 'engines_to_car';
+    protected $table = 'cars_to_part';
 }
