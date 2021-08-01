@@ -22,8 +22,13 @@ class CarsToPartFactory extends Factory
     public function definition()
     {
         return [
+<<<<<<< HEAD
+            'car_id' => rand(1,10),
+            'part_id' => rand(1,10),
+=======
             'car_id' => rand(1,100),
             'part_id' => rand(1,100),
+>>>>>>> master
         ];
     }
 }

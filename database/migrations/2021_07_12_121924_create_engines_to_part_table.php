@@ -13,7 +13,7 @@ class CreateEnginesToPartTable extends Migration
      */
     public function up()
     {
-        Schema::create('engines_to_part', function (Blueprint $table) {
+        Schema::create('engine_part', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('part_id');
             $table->unsignedBigInteger('engine_id');

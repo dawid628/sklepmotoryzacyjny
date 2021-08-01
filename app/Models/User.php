@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Models\Cart;
+use App\Models\Role;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -17,9 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name', 'email', 'password', 'facebook_id', 'google_id',
     ];
 
     /**
@@ -40,4 +40,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function roles(){
+        return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');
+    }
+
+    public function hasAnyRole($roles){
+
+        if(is_array($roles))
+            foreach($roles as $role){
+                if($this->hasRole($role)){
+                    return true;
+                }
+            }
+            return false;
+        }
+
+    public function hasRole($role){
+
+        if ( $this->roles()->where('name', $role)->first()){
+            return true;
+        }
+        return false;
+    }
 }

@@ -13,7 +13,7 @@ class CreateBodyworksToPartTable extends Migration
      */
     public function up()
     {
-        Schema::create('bodyworks_to_part', function (Blueprint $table) {
+        Schema::create('bodywork_part', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('part_id');
             $table->unsignedBigInteger('bodywork_id');
